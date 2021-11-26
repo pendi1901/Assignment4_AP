@@ -9,15 +9,16 @@ import java.util.Random;
 
 
 public class Main {
+    //Should make something out of this by associating or using composition do to something
     public class Softtoy{
         private final String name;
-
         Softtoy(String name) {
             this.name = name;
         }
     }
 
-    public static class MyGenericList{
+    //Generic class List for the Toys list!!
+    public static class MyGenericList <T>{
         private ArrayList softtoys;
         public MyGenericList(){
             softtoys = new ArrayList();
@@ -33,6 +34,8 @@ public class Main {
 
         }
     }
+    //Methods from here on
+
     //creating the string
     public static String genString(int n) {
         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvxyz";
@@ -106,18 +109,54 @@ public class Main {
         return 0;
     }
     public static void main(String [] args) throws IOException {
+        InputStreamReader r=new InputStreamReader(System.in);
+        BufferedReader br=new BufferedReader(r);
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         MyGenericList softtoys = new MyGenericList();
         System.out.println("Hit Enter to Initialise the game ");
+        br.readLine();
         System.out.println("Game is Ready");
         System.out.println("Hit enter for your first hop");
         int a = hop();
         System.out.println("You landed on tile: "+ a);
         if (a % 2 == 0) {
 
+
         }
         else{
+            System.out.println("Question answer round, Integer or Strings?");
+            String str2 = br.readLine();
+            //for asking Integer Question
+            if(str2.equals("Integer")){
+                String str7 = askQuestionInteger();
+                System.out.println(str7);
+                if(str7.equals("Correct Answer ")){
+                    System.out.println("softtoy");
+                }
+                else{
+                    System.out.println("no softtoy");
+                }
+            }
+            //for asking the String Question
+            else if(str2.equals("String")){
+                String str6 = askQuestionString();
+                System.out.println(str6);
+                if(str6.equals("Correct Answer ")){
+                    System.out.println("softtoy");
+                }
+                else{
+                    System.out.println("no softtoy");
+                }
+            }
+            else{
+                //Try some error handling here
+            }
+
+
+
+
+
 
         }
 
